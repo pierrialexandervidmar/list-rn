@@ -58,11 +58,40 @@ export const style = StyleSheet.create({
     marginTop: 40,
     fontSize: 18
   },
-  input:{
+  input: {
     // backgroundColor:'red',
-    height:'100%',
-    width:'100%',
-    borderRadius:40,
+    height: '100%',
+    width: '100%',
+    borderRadius: 40,
     // paddingHorizontal:20
   },
+  button: {
+    width: 250,
+    height: 50,
+    backgroundColor: themas.Colors.primary,
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+  },
+  textButton: {
+    color: themas.Colors.secondary,
+    fontWeight: 'bold',
+    fontSize: 16
+  },
+  textBottom: {
+    fontSize: 16,
+    color: themas.Colors.gray
+  },
+  textBottomCreate: {
+    fontSize: 16,
+    color: themas.Colors.primary
+  }
 });
