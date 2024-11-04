@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Text, View, Image, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 
-import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons, Octicons } from '@expo/vector-icons'
 
 import Logo from '../../assets/logo.png';
 import { style } from './styles';
 import { themas } from '../../global/themes';
+import { Input } from '../../components/Input';
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const [showPassword,setShowPassword] = useState(true);
 
   function getLogin() {
     try {
@@ -51,17 +53,30 @@ export default function Login() {
 
       <View style={style.boxMid}>
 
-        <Text style={style.titleInput}>Endereço de email</Text>
-        <View style={style.boxInput}>
-          <TextInput
-            style={style.input}
-            value={email}
-            onChangeText={setEmail}
-          />
-          <MaterialIcons name='email' size={20} color={themas.Colors.gray} />
-        </View>
+        
+
+        <Input
+          title="Endereço de email"
+          value={email}
+          onChangeText={setEmail}
+          IconRight={MaterialIcons}
+          iconRightName="email"
+          onIconRightPress={() => console.log('OLA')}
+        />
+
+        <Input
+          title='Senha'
+          value={password}
+          onChangeText={setPassword}
+          IconRight={Octicons}
+          iconRightName={showPassword?"eye-closed":"eye"}
+          secureTextEntry={!showPassword}
+          onIconRightPress={()=>setShowPassword(!showPassword)}
+        />
 
 
+
+{/* 
         <Text style={style.titleInput}>Senha</Text>
         <View style={style.boxInput}>
           <TextInput
@@ -70,7 +85,7 @@ export default function Login() {
             onChangeText={setPassword}
           />
           <MaterialIcons name='lock' size={20} color={themas.Colors.gray} />
-        </View>
+        </View> */}
 
       </View>
 
